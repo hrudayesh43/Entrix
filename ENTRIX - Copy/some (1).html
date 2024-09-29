@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transport Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Positioning the logo at the top left corner */
+        .logo {
+            position: absolute;
+            top: 20px; /* Distance from the top */
+            left: 20px; /* Distance from the left */
+            width: 120px; /* Adjust the logo size */
+            height: auto;
+        }
+
+        /* Reducing the transport image size */
+        .main-image {
+            max-width: 70%; /* Image takes up a smaller portion of the white space */
+            height: auto;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        /* Other styles for body and layout */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .split-screen {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .left {
+            background-color: white;
+            flex: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .right {
+            background-color: #ffcc00; /* Yellow background */
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Other button, form, and text styles are unchanged */
+    </style>
+</head>
+<body>
+    <div class="split-screen">
+        <!-- Left White Section -->
+        <div class="left">
+            <img src="C:\Users\DELL\Downloads\Easypass.pdf (1)-modified.png" alt="Company Logo" class="logo"> <!-- Logo in top left corner -->
+            <div class="image-container">
+                <img src="C:\Users\DELL\Downloads\WhatsApp Image 2024-09-19 at 18.15.42.jpeg" alt="Transport Image" class="main-image">
+            </div>
+        </div>
+
+        <!-- Right Yellow Section -->
+        <div class="right">
+            <div class="form-container">
+                <h1>Welcome to the Transport Portal</h1>
+                <p class="tagline">Streamlining your transport experience</p>
+                <div class="buttons">
+                    <button id="loginBtn">Login</button>
+                    <button id="signupBtn">Sign Up</button>
+                </div>
+
+                <div id="loginForm" class="form active-form">
+    <h2>Login</h2>
+    <form action="C:\Users\DELL\Downloads\dashboard2.html" method="POST">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required placeholder="Enter your email">
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required placeholder="Enter your password">
+
+        <button type="submit" class="submit-btn">Login</button>
+    </form>
+</div>
+
+                <div id="signupForm" class="form">
+                    <h2>Sign Up</h2>
+                    <form>
+                        <label for="companyName">Company Name:</label> <!-- Changed label to Company Name -->
+                        <input type="text" id="companyName" name="companyName" required placeholder="Enter your company name">
+
+                        <label for="emailSignup">Email:</label>
+                        <input type="email" id="emailSignup" name="email" required placeholder="Enter your email">
+
+                        <label for="passwordSignup">Password:</label>
+                        <input type="password" id="passwordSignup" name="password" required placeholder="Enter your password">
+
+                        <label for="confirmPassword">Confirm Password:</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Confirm your password">
+
+                        <button type="submit" class="submit-btn">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

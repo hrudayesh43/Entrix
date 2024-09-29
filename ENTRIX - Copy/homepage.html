@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Entrix - Logistics & Supply Chain Management</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Custom Fonts */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #1f1f1f;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        h1, h2 {
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        p {
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 50px;
+            z-index: 3;
+        }
+
+        nav .logo img {
+            width: 200px;
+        }
+
+        nav .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        nav .nav-links li {
+            margin-left: 20px;
+        }
+
+        nav .nav-links li a {
+            color: #f2f200; /* Yellow link color */
+            text-decoration: none;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        nav .btn {
+            background-color: #ffdd33; /* Light yellow button */
+            padding: 10px 20px;
+            color: #1f1f1f; /* Dark background for contrast */
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        nav .btn:hover {
+            background-color: #ffd700; /* Darker yellow on hover */
+        }
+
+        /* Header Section */
+        header {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero {
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            color: #f2f200; /* Yellow heading */
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #ddd; /* Light grey for contrast */
+            letter-spacing: 1px;
+        }
+
+        /* Animated Background */
+        .animated-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(30,30,30,1) 0%, rgba(0,0,0,1) 100%);
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .animated-background::before, .animated-background::after {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background: url('logistics-network-pattern.png') repeat;
+            opacity: 0.05;
+            animation: moveBackground 30s linear infinite;
+        }
+
+        @keyframes moveBackground {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            50% {
+                transform: translate(100px, 100px) scale(1.2);
+            }
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+        }
+
+        /* Floating Dots Background Animation */
+        .dot {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(255, 221, 51, 0.7); /* Yellow shade */
+            animation: float 8s infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* Create multiple dots */
+        .dot:nth-child(1) { width: 15px; height: 15px; top: 10%; left: 15%; animation-duration: 6s; }
+        .dot:nth-child(2) { width: 20px; height: 20px; top: 30%; left: 40%; animation-duration: 8s; }
+        .dot:nth-child(3) { width: 10px; height: 10px; top: 60%; left: 25%; animation-duration: 5s; }
+        .dot:nth-child(4) { width: 25px; height: 25px; top: 40%; left: 70%; animation-duration: 7s; }
+        .dot:nth-child(5) { width: 18px; height: 18px; top: 20%; left: 85%; animation-duration: 9s; }
+        .dot:nth-child(6) { width: 22px; height: 22px; top: 50%; left: 10%; animation-duration: 8s; }
+        .dot:nth-child(7) { width: 12px; height: 12px; top: 80%; left: 30%; animation-duration: 7s; }
+        .dot:nth-child(8) { width: 14px; height: 14px; top: 70%; left: 50%; animation-duration: 6s; }
+        .dot:nth-child(9) { width: 20px; height: 20px; top: 90%; left: 80%; animation-duration: 8s; }
+        .dot:nth-child(10) { width: 16px; height: 16px; top: 10%; left: 90%; animation-duration: 9s; }
+
+        /* Floating Icons */
+        .floating-icon {
+            position: absolute;
+            opacity: 0.5;
+            animation: float 10s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Specific Transport Icons */
+        .icon1 { top: 10%; left: 20%; animation-duration: 12s; }
+        .icon2 { top: 30%; left: 70%; animation-duration: 15s; }
+        .icon3 { top: 50%; left: 30%; animation-duration: 18s; }
+        .icon4 { top: 70%; left: 60%; animation-duration: 10s; }
+        .icon5 { top: 20%; left: 80%; animation-duration: 14s; }
+
+        /* Services Section */
+        section {
+            padding: 60px 0;
+        }
+
+        #services {
+            text-align: center;
+        }
+
+        #services h2 {
+            font-size: 36px;
+            color: #ffdd33; /* Bright yellow for heading */
+            margin-bottom: 40px;
+        }
+
+        .services-grid {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+
+        .service {
+            width: 30%;
+        }
+
+        .service img {
+            width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .service h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #f2f200; /* Yellow service title */
+        }
+
+        .service p {
+            font-size: 16px;
+            color: #ffe600; /* Lighter yellow for description */
+        }
+
+        /* Contact Section */
+        #contact h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 36px;
+            color: #ffdd33; /* Bright yellow for heading */
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        form input, form textarea {
+            padding: 15px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            background-color: #2f2f2f; /* Dark background for input */
+            color: #fff;
+        }
+
+        form button {
+            background-color: #ffdd33; /* Light yellow button */
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-family: 'Poppins', sans-serif;
+            color: #1f1f1f; /* Dark background for contrast */
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        form button:hover {
+            background-color: #ffd700; /* Darker yellow on hover */
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #1f1f1f;
+            color: #ddd;
+            position: relative;
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <img src="C:\Users\DELL\Downloads\Picsart_24-09-28_17-54-41-336.png" alt="Entrix Logo">
+        </div>
+        <ul class="nav-links"> 
+            <li><a href="#services">Home</a></li>
+            <li><a href="#services">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="C:\Users\DELL\Downloads\mainpage.HTML" class="btn">Get Started</a> <!-- Changed to link to contact section -->
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+        <div class="animated-background"></div>
+        <div class="hero">
+            <h1>Welcome to Entrix</h1>
+            <p>Your trusted partner in logistics and supply chain management.</p>
+        </div>
+
+        <!-- Background Dots Animation -->
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+
+        <!-- Floating Icons -->
+        <div class="floating-icon icon1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 20v-6h4v6m0-10h-4V4h4v6zm0-6H8v4h4V4zm0 0V2H8v2zm0 0h2m2 0h2m-6 0H8m-6 6h2v10H2V10zm18 0h2v10h-2V10z"></path>
+            </svg>
+        </div>
+        <div class="floating-icon icon2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 18L18 6m-6 0l-6 6m12 0L6 18m12 0H6m0 0l6 6"></path>
+            </svg>
+        </div>
+        <div class="floating-icon icon3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2l2 5H4l2-5h8zm0 0L12 21l-1-5h8L20 2z"></path>
+            </svg>
+        </div>
+        <div class="floating-icon icon4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 10h22M1 14h22M1 10v4m22-4v4"></path>
+            </svg>
+        </div>
+        <div class="floating-icon icon5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 12h12M6 16h12M6 8h12"></path>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Section 2: Services Section -->
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service">
+                <img src="C:\Users\DELL\Downloads\SAVE_20240928_152219.jpg" alt="Service 1">
+                <h3>Transportation</h3>
+                <p>Reliable transport solutions for your goods.</p>
+            </div>
+            <div class="service">
+                <img src="C:\Users\DELL\Downloads\Picsart_24-09-28_15-47-13-081.jpg">
+                <h3>Gate Management</h3>
+                <p>Safe and secure managament for your premises.</p>
+            </div>
+            <div class="service">
+                <img src="C:\Users\DELL\Downloads\IMG_20240928_153834.jpg" alt="Service 3">
+                <h3>Supply Chain Management</h3>
+                <p>Optimize your supply chain for maximum efficiency.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea rows="4" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Entrix. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

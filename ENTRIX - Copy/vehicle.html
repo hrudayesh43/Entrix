@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transport Portal - Vehicle Information</title>
+
+    <!-- Google Fonts for Raleway -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- External CSS Link (if needed) -->
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffcc00; /* Set the entire page background to yellow */
+        }
+
+        /* Outer Yellow Box */
+        .outer-box {
+            padding: 30px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 1200px;
+            background-color: white; /* Background color of the inner box */
+        }
+
+        /* Centralized Form Container */
+        .form-container {
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 900px;
+        }
+
+        /* Title and Text Styling */
+        h1 {
+            font-size: 2.5rem;
+            color: #007bff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: 600;
+            text-align: left;
+            font-size: 1.1rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            outline: none;
+            transition: border-color 0.3s ease;
+            font-size: 1rem;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #007bff;
+        }
+
+        textarea {
+            height: 100px;
+            resize: none;
+        }
+
+        /* Button Styling */
+        .submit-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .vehicle-box {
+            margin-bottom: 20px;
+        }
+
+        .upload-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .upload-btn:hover {
+            background-color: #218838;
+        }
+
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 120px;
+            height: auto;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Logo Link -->
+    <a href="https://www.yourcompanywebsite.com" target="_blank">
+        <img src="C:\Users\DELL\Downloads\Easypass.pdf (1)-modified.png" alt="Company Logo" class="logo">
+    </a>
+
+    <div class="outer-box">
+        <!-- Inner Form Container -->
+        <div class="form-container">
+            <h1>Vehicle Information</h1>
+
+            <!-- Number of Vehicles Input -->
+            <label for="numVehicles">Number of Vehicles:</label>
+            <input type="number" id="numVehicles" min="1" placeholder="Enter number of vehicles">
+
+            <!-- Dynamic Vehicle Inputs -->
+            <div id="vehicleInputs"></div>
+
+            <!-- Vehicle Description -->
+            <label for="vehicleDescription">Vehicle's Description:</label>
+            <textarea id="vehicleDescription" placeholder="Enter vehicle description"></textarea>
+
+            <!-- Submit Button -->
+            <button class="submit-btn" id="submitBtn">Submit</button>
+        </div>
+    </div>
+
+    <script>
+        // Get elements
+        const numVehiclesInput = document.getElementById('numVehicles');
+        const vehicleInputsContainer = document.getElementById('vehicleInputs');
+        const submitBtn = document.getElementById('submitBtn');
+
+        // Function to generate vehicle and chassis number inputs dynamically
+        numVehiclesInput.addEventListener('input', function() {
+            const numVehicles = parseInt(numVehiclesInput.value);
+            vehicleInputsContainer.innerHTML = ''; // Clear the container
+
+            if (numVehicles > 0) {
+                for (let i = 1; i <= numVehicles; i++) {
+                    // Create vehicle number input box
+                    const vehicleBox = document.createElement('div');
+                    vehicleBox.classList.add('vehicle-box');
+
+                    const vehicleLabel = document.createElement('label');
+                    vehicleLabel.textContent = `Vehicle Number ${i}:`;
+
+                    const vehicleInput = document.createElement('input');
+                    vehicleInput.type = 'text';
+                    vehicleInput.placeholder = `Enter vehicle number ${i}`;
+                    vehicleInput.name = `vehicleNumber${i}`;
+
+                    vehicleBox.appendChild(vehicleLabel);
+                    vehicleBox.appendChild(vehicleInput);
+
+                    // Create chassis number input box
+                    const chassisLabel = document.createElement('label');
+                    chassisLabel.textContent = `Chassis Number of Vehicle ${i}:`;
+
+                    const chassisInput = document.createElement('input');
+                    chassisInput.type = 'text';
+                    chassisInput.placeholder = `Enter chassis number of vehicle ${i}`;
+                    chassisInput.name = `chassisNumber${i}`;
+
+                    vehicleBox.appendChild(chassisLabel);
+                    vehicleBox.appendChild(chassisInput);
+
+                    // Create upload document button
+                    const uploadButton = document.createElement('button');
+                    uploadButton.className = 'upload-btn';
+                    uploadButton.textContent = 'Upload Documents';
+                    
+                    // Redirect to a new page on button click
+                    uploadButton.onclick = function() {
+                        window.location.href = `documentssub.html?vehicle=${i}`; // Adjust the URL as needed
+                    };
+
+                    vehicleBox.appendChild(uploadButton);
+                    vehicleInputsContainer.appendChild(vehicleBox);
+                }
+            }
+        });
+
+        // Event listener for submit button
+        submitBtn.addEventListener('click', function() {
+            const vehicleDescription = document.getElementById('vehicleDescription').value;
+
+            console.log("Vehicle Description: ", vehicleDescription);
+
+            const vehicleNumbers = [];
+            const chassisNumbers = [];
+
+            const vehicleInputs = vehicleInputsContainer.getElementsByTagName('input');
+
+            for (let i = 0; i < vehicleInputs.length; i++) {
+                if (i % 2 === 0) {
+                    vehicleNumbers.push(vehicleInputs[i].value); // Every even index is a vehicle number
+                } else {
+                    chassisNumbers.push(vehicleInputs[i].value); // Every odd index is a chassis number
+                }
+            }
+
+            console.log("Vehicle Numbers: ", vehicleNumbers);
+            console.log("Chassis Numbers: ", chassisNumbers);
+
+            // You can handle the form submission here, e.g., send data to a server or display it on the page
+            alert("Vehicle Information Submitted!");
+        });
+    </script>
+
+</body>
+</html>

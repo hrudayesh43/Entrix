@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transport Portal - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Logo positioning for consistency */
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 120px;
+            height: auto;
+        }
+
+        /* Main image styling */
+        .main-image {
+            max-width: 70%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .split-screen {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .left {
+            background-color: white;
+            flex: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .right {
+            background-color: #ffcc00;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .form h2 {
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            text-align: left;
+            font-weight: 400;
+        }
+
+        select,
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .submit-btn {
+            background-color: #ffcc00;
+            color: #333;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .terms {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .terms label {
+            font-weight: 400;
+        }
+
+        .submit-btn:hover {
+            background-color: #f0b800;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="split-screen">
+        <!-- Left White Section with Logo and Image -->
+        <div class="left">
+            <img src="C:\Users\DELL\Downloads\Easypass.pdf (1)-modified.png" alt="Company Logo" class="logo">
+            <div class="image-container">
+                <img src="C:\Users\DELL\Downloads\DALL·E 2024-09-26 20.50.31 - A futuristic scene showcasing a fast vehicle approval system, this time featuring a large logistic truck at a checkpoint with digital holographic disp.webp" class="main-image">
+            </div>
+        </div>
+
+        <!-- Right Yellow Section with Form -->
+        <div class="right">
+            <div class="form-container">
+                <h2>Organization Information</h2>
+                <!-- Updated form with action attribute -->
+                <form action="C:\Users\DELL\Downloads\confirmation.html" method="post">
+                    <!-- Type of Organization -->
+                    <label for="organizationType">Type of Organization:</label>
+                    <select id="organizationType" name="organizationType">
+                        <option value="logistics">Logistics and Supply Chain Management</option>
+                        <option value="manufacturing">Manufacturing and Industrial Plants</option>
+                        <option value="retail">Retail and E-commerce</option>
+                        <option value="construction">Construction Sites</option>
+                        <option value="energy">Energy and Utilities</option>
+                        <option value="airports">Airports and Sea Ports</option>
+                        <option value="events">Events and Large Scale Venues</option>
+                        <option value="government">Government and Defence Facilities</option>
+                        <option value="healthcare">Healthcare and Pharmaceuticals</option>
+                        <option value="agriculture">Agriculture and Farming</option>
+                        <option value="mining">Mining and Natural Resources</option>
+                    </select>
+
+                    <!-- Type of Delivery -->
+                    <label for="deliveryType">Type of Delivery:</label>
+                    <select id="deliveryType" name="deliveryType">
+                        <option value="retailGoods">Retail and Consumer Goods</option>
+                        <option value="industrialGoods">Industrial and Manufacturing Goods</option>
+                        <option value="food">Food and Beverages</option>
+                        <option value="automotive">Automotive and Machinery</option>
+                        <option value="pharmaceutical">Pharmaceutical and Medical Supplies</option>
+                        <option value="fuel">Fuel and Energy</option>
+                        <option value="constructionMaterials">Construction Materials</option>
+                        <option value="courier">Courier and Parcel Materials</option>
+                        <option value="agricultural">Agricultural Products</option>
+                        <option value="waste">Waste and Recycling</option>
+                    </select>
+
+                    <!-- Company License -->
+                    <label for="companyLicense">Company License:</label>
+                    <input type="text" id="companyLicense" name="companyLicense" placeholder="Enter your company license number">
+
+                    <!-- Terms and Conditions -->
+                    <div class="terms">
+                        <label for="terms">Terms and Conditions:</label>
+                        <p>By selecting the checkbox, you agree to our <a href="#">Terms and Conditions</a> which include the appropriate usage of the portal, data privacy, and compliance with regulatory requirements in your region.</p>
+                        <input type="radio" id="acceptTerms" name="terms" value="accepted" required>
+                        <label for="acceptTerms">I accept the Terms and Conditions</label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="submit-btn">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

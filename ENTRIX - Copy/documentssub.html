@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Submission Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffcc00; /* Yellow background */
+            position: relative;
+        }
+
+        .logo {
+            position: absolute;
+            top: 20px; /* Distance from the top */
+            left: 20px; /* Distance from the left */
+            width: 120px; /* Adjust the logo size */
+            height: auto;
+        }
+
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 30px; /* Increased padding for better spacing */
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            max-width: 90%; /* Make it responsive */
+            width: 500px; /* Set a fixed width */
+            text-align: center;
+            animation: fadeIn 1.2s ease-in-out;
+            overflow: hidden; /* Prevent overflow */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 2rem; /* Increased size for prominence */
+            color: #007bff;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: 700; /* Bold font for labels */
+            text-align: left;
+            font-size: 1.1rem; /* Increased size */
+            color: #333;
+        }
+
+        input[type="file"] {
+            margin-top: 5px;
+            border: 2px solid #007bff; /* Classic border */
+            border-radius: 25px;
+            padding: 10px;
+            cursor: pointer;
+            width: 100%;
+            background-color: #f9f9f9; /* Light background for input */
+            transition: border-color 0.3s;
+            font-size: 1rem; /* Increase font size for better readability */
+        }
+
+        input[type="file"]:hover {
+            border-color: #0056b3; /* Change border color on hover */
+        }
+
+        button.submit-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+            font-weight: bold;
+            transition: background-color 0.3s ease-in-out;
+            font-size: 1.1rem; /* Increase font size for better readability */
+        }
+
+        button.submit-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <img src="C:\Users\DELL\Downloads\Easypass.pdf (1)-modified.png" class="logo"> <!-- Logo in top left corner -->
+
+    <div class="form-container">
+        <h1>Document Submission</h1>
+        <form>
+            <label for="vehicleRC">Upload Vehicle RC:</label>
+            <input type="file" id="vehicleRC" name="vehicleRC" required>
+
+            <label for="insurance">Upload Insurance:</label>
+            <input type="file" id="insurance" name="insurance" required>
+
+            <label for="permits">Upload Permits:</label>
+            <input type="file" id="permits" name="permits" required>
+
+            <label for="fitnessCert">Upload Fitness Certificates:</label>
+            <input type="file" id="fitnessCert" name="fitnessCert" required>
+
+            <label for="pollutionClearance">Upload Pollution Clearance:</label>
+            <input type="file" id="pollutionClearance" name="pollutionClearance" required>
+
+            <label for="driversLicense">Upload Driver's License:</label>
+            <input type="file" id="driversLicense" name="driversLicense" required>
+
+            <label for="customerSlip">Upload Customer Requisition Slip:</label>
+            <input type="file" id="customerSlip" name="customerSlip" required>
+
+            <button type="submit" class="submit-btn">Submit Documents</button>
+        </form>
+    </div>
+</body>
+</html>
